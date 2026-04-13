@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>زر الواتساب</title>
+    <style>
+        .whatsapp-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #25D366; /* لون واتساب الرسمي */
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+<a href="whatsapp://send?phone=96181557991" class="whatsapp-button">
+    افتح تطبيق واتساب مباشرة
+</a>
+<script>
+    function openWhatsApp() {
+    var phoneNumber = "96181557991"; // رقمك هنا
+    var message = "مرحباً، لدي استفسار";
+    
+    // التحقق إذا كان المستخدم يستخدم موبايل
+    var isMobile = /iPhone|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // فتح التطبيق مباشرة في الموبايل
+        window.location.href = "whatsapp://send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+    } else {
+        // فتح واتساب ويب أو التطبيق في الكمبيوتر
+        window.open("https://web.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message), '_blank');
+    }
+}
+</script>
+</body>
+</html>
